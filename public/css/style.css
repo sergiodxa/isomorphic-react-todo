@@ -1,0 +1,124 @@
+body {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+form { margin-bottom: 0; }
+
+header,
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+header { text-align: center; }
+
+header h1 {
+  text-transform: uppercase;
+  margin: .5em 0;
+  font-size: 3em;
+}
+
+header form input {
+  border-radius: 2em;
+  border: 2px solid #f0f0f0;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding: .5em;
+  width: 100%;
+}
+header form input:focus {
+  outline: none;
+  border-color: black;
+}
+
+article {
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: .25em;
+  display: flex;
+  margin: .5em 0;
+  padding: .5em 1em;
+}
+
+article form:nth-child(1) { flex-basis: 2em; }
+
+article form:nth-child(1) input[type="checkbox"] { display: none; }
+
+article form:nth-child(1) button,
+article form:nth-child(3) button {
+  background: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  height: 2em;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 2em;
+}
+
+article form:nth-child(1) button:focus,
+article form:nth-child(2) button:focus,
+article form:nth-child(3) button:focus {
+  border-color: red;
+  outline: none;
+}
+
+article form:nth-child(1)
+  input[type="checkbox"]:checked + button::before {
+  background: black;
+  border-radius: 50%;
+  content: '';
+  height: .5em;
+  left: 50%;
+  margin-left: -.25em;
+  margin-top: -.25em;
+  position: absolute;
+  top: 50%;
+  width: .5em;
+}
+
+article form:nth-child(2) {
+  flex-grow: 1;
+  position: relative;
+}
+
+article form:nth-child(2) input[type="text"] {
+  background: #f0f0f0;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  display: block;
+  font-weight: bold;
+  padding: .5em;
+  width: 100%;
+}
+article form:nth-child(2) input[type="text"]:focus {
+  border-bottom: 1px solid red;
+  outline: none;
+}
+
+article form:nth-child(2) button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2em;
+}
+
+article form:nth-child(2)
+  input[type="text"]:focus + button,
+article form:nth-child(2) button:focus,
+article form:nth-child(2) button:active {
+  display: block;
+}
+
+article form:nth-child(3) {
+  flex-basis: 3em;
+  text-align: right;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "isomorphic-react-todo",
+  "version": "1.0.0",
+  "description": "Aplicación web de TODOs isomórfica hecha con React.js",
+  "main": "server.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "babel-node server.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergiodxa/isomorphic-react-todo.git"
+  },
+  "keywords": [
+    "isomorphic",
+    "react.js",
+    "todo",
+    "react-engine",
+    "react-router"
+  ],
+  "author": "Sergio Daniel Xalambrí <sergio@xalambri.com.ar> (http://sergio.xalambri.com.ar/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergiodxa/isomorphic-react-todo/issues"
+  },
+  "homepage": "https://github.com/sergiodxa/isomorphic-react-todo",
+  "devDependencies": {
+    "babel-runtime": "^5.4.7",
+    "babelify": "^6.1.1",
+    "browserify": "^10.2.1",
+    "gulp": "^3.8.11",
+    "gulp-uglify": "^1.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "diskdb": "^0.1.14",
+    "express": "^4.12.4",
+    "react": "^0.13.3",
+    "react-engine": "^1.6.0",
+    "react-router": "^0.13.3"
+  }
+}
