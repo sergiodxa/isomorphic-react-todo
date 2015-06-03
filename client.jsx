@@ -9,5 +9,5 @@ const options = {
 };
 
 document.addEventListener('DOMContentLoaded', function onLoad() {
-  Client.boot(options, (data) => console.log(data));
+  Client.boot(options);
 });
