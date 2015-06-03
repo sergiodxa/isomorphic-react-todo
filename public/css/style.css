@@ -42,12 +42,17 @@ article {
   padding: .5em 1em;
 }
 
-article form:nth-child(1) { flex-basis: 2em; }
+article > form {
+  width: 100%;
+ display: flex;
+}
 
-article form:nth-child(1) input[type="checkbox"] { display: none; }
+article div:nth-child(2) { flex-basis: 2em; }
 
-article form:nth-child(1) button,
-article form:nth-child(3) button {
+article div:nth-child(2) input[type="checkbox"] { display: none; }
+
+article div:nth-child(2) button,
+article div:nth-child(4) button {
   background: white;
   border-radius: 50%;
   border: 2px solid black;
@@ -59,14 +64,14 @@ article form:nth-child(3) button {
   width: 2em;
 }
 
-article form:nth-child(1) button:focus,
-article form:nth-child(2) button:focus,
-article form:nth-child(3) button:focus {
+article div:nth-child(2) button:focus,
+article div:nth-child(3) button:focus,
+article div:nth-child(4) button:focus {
   border-color: red;
   outline: none;
 }
 
-article form:nth-child(1)
+article div:nth-child(2)
   input[type="checkbox"]:checked + button::before {
   background: black;
   border-radius: 50%;
@@ -80,12 +85,12 @@ article form:nth-child(1)
   width: .5em;
 }
 
-article form:nth-child(2) {
+article div:nth-child(3) {
   flex-grow: 1;
   position: relative;
 }
 
-article form:nth-child(2) input[type="text"] {
+article div:nth-child(3) input[type="text"] {
   background: #f0f0f0;
   border: none;
   border-bottom: 1px solid #f0f0f0;
@@ -94,12 +99,12 @@ article form:nth-child(2) input[type="text"] {
   padding: .5em;
   width: 100%;
 }
-article form:nth-child(2) input[type="text"]:focus {
+article div:nth-child(3) input[type="text"]:focus {
   border-bottom: 1px solid red;
   outline: none;
 }
 
-article form:nth-child(2) button {
+article div:nth-child(3) button {
   background: none;
   border: none;
   cursor: pointer;
@@ -111,14 +116,14 @@ article form:nth-child(2) button {
   width: 2em;
 }
 
-article form:nth-child(2)
+article div:nth-child(3)
   input[type="text"]:focus + button,
-article form:nth-child(2) button:focus,
-article form:nth-child(2) button:active {
+article div:nth-child(3) button:focus,
+article div:nth-child(3) button:active {
   display: block;
 }
 
-article form:nth-child(3) {
+article div:nth-child(4) {
   flex-basis: 3em;
   text-align: right;
 }
