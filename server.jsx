@@ -20,7 +20,7 @@ app.use('/assets', express.static('public'));
 app.get('/', (req, res) => {
   const todos = find();
 
-  res.render('todo', { todos });
+  res.render('app', { todos });
 });
 
 app.listen(port);

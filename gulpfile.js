@@ -41,7 +41,7 @@ gulp.task('build:js', function () {
   return browserify({
     entries: paths.src.js,
     debug: true,
-    extensions: config.browserify.extensions
+    extensions: config.browserify.extensions,
     transform: [babelify.configure(config.babelify)]
   }).bundle()
     .pipe(source(config.browserify.fileName))
