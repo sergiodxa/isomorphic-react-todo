@@ -38,12 +38,6 @@ app.post('/', (req, res) => {
 app.put('/', (req, res) => {
   let { _id: id, status, todo } = req.body;
 
-  if (status === undefined || status === false) {
-    status = true;
-  } else {
-    status = false;
-  }
-
   const response = update(id, {
     status: status,
     todo: todo
