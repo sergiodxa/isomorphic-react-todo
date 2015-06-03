@@ -15,6 +15,8 @@ app.set('view', engine.expressView);
 
 app.use('/api', api);
 
+app.use('/assets', express.static('public'));
+
 app.get('/', (req, res) => {
   const todos = find();
 
