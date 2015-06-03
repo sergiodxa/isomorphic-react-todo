@@ -26,16 +26,22 @@ const App = React.createClass({
       todos.push(body);
 
       this.setState({ todos });
+
+      input.value = '';
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  removedTodo: async function (todos) {
+    try {
+      this.setState({ todos });
     } catch (err) {
       console.log(err);
     }
   },
 
   render() {
-    function showTodos (todo) {
-      return (<Todo key={ todo._id } {...todo} />);
-    }
-
     return (
       <Layout>
         <header>
@@ -46,6 +52,7 @@ const App = React.createClass({
            className="form-create-todo"
            onSubmit={ this.createTodo }>
            <input type="text"
+            autofocus={ true }
             placeholder="¿Qué te queda por hacer?"
             name="todo"
             ref="newTodo" />
@@ -53,7 +60,12 @@ const App = React.createClass({
         </header>
 
         <section>
-          { this.state.todos.map(showTodos) }
+          { this.state.todos.map(todo => {
+            return (
+              <Todo removedTodo={ this.removedTodo }
+               key={ todo._id } {...todo} />
+            );
+          }) }
         </section>
       </Layout>
     );
