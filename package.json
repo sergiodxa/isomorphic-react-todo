@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "gulp build",
-    "start": "babel-node server.jsx"
+    "start": "babel-node --optional es7.asyncFunctions server.jsx"
   },
   "repository": {
     "type": "git",

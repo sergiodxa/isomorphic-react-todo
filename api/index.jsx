@@ -10,14 +10,14 @@ const app = express();
 
 app
   .use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
-  .use(bodyParser.urlencoded({ extended: true }));
-  .use(bodyParser.text({ type: 'text/html' }));
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.text({ type: 'text/html' }))
   .use(bodyParser.json());
 
 // obtener listado de todos
 app.get('/', (req, res) => {
   const todos = find();
-  res.json();
+  res.json(todos);
 });
 
 // crear todo
@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
 
 // actualizar todo
 app.put('/', (req, res) => {
-  const { _id: id, status, todo } = req.body;
+  let { _id: id, status, todo } = req.body;
 
   if (status === undefined || status === false) {
     status = true;
@@ -67,7 +67,7 @@ app.delete('/', (req, res) => {
   }
 
   res.status(401)
-    .send(new Error('Hubo un error al borrar el TODO.')));
+    .send(new Error('Hubo un error al borrar el TODO.'));
 })
 
 export default app;
