@@ -1,18 +1,39 @@
-import React  from 'react';
 import Layout from './layout.jsx';
+import React  from 'react';
 import Todo   from '../components/todo.jsx';
+import xhr    from 'promised-xhr';
 
 const App = React.createClass({
-  createTodo(e) {
-    e.preventDefault();
+  getInitialState() {
+    const todos = this.props.todos;
 
-    const input = this.refs.newTodo;
-    console.log(input);
+    return { todos };
+  },
+
+  createTodo: async function (e) {
+    try {
+      e.preventDefault();
+
+      const input = this.refs.newTodo.getDOMNode();
+
+      const { body } = await xhr.post('/api/', {
+        data: {
+          todo: input.value
+        }
+      });
+
+      const todos = Array.from(this.state.todos);
+      todos.push(body);
+
+      this.setState({ todos });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   render() {
     function showTodos (todo) {
-      return (<Todo {...todo} key={ todo._id } />);
+      return (<Todo key={ todo._id } {...todo} />);
     }
 
     return (
@@ -32,7 +53,7 @@ const App = React.createClass({
         </header>
 
         <section>
-          { this.props.todos.map(showTodos) }
+          { this.state.todos.map(showTodos) }
         </section>
       </Layout>
     );
